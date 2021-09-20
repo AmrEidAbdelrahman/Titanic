@@ -747,68 +747,7 @@ titanic = titanic.drop(['categoricalAge' , 'categoricalFare'] , axis=1)
 
 test = test.drop(drop_elements , axis=1)
 # titanic = titanic.drop(['categoricalAge' , 'categoricalFare'] , axis=1)
-```
 
-
-    ---------------------------------------------------------------------------
-
-    KeyError                                  Traceback (most recent call last)
-
-    ~\AppData\Local\Temp/ipykernel_2376/4279866512.py in <module>
-          1 drop_elements = ['PassengerId' , 'Name' , 'SibSp' , 'Cabin' , 'Ticket' , 'Sex' , 'Embarked']
-    ----> 2 titanic = titanic.drop(drop_elements , axis=1)
-          3 titanic = titanic.drop(['categoricalAge' , 'categoricalFare'] , axis=1)
-          4 
-          5 test = test.drop(drop_elements , axis=1)
-    
-
-    c:\users\amrei\appdata\local\programs\python\python39\lib\site-packages\pandas\util\_decorators.py in wrapper(*args, **kwargs)
-        309                     stacklevel=stacklevel,
-        310                 )
-    --> 311             return func(*args, **kwargs)
-        312 
-        313         return wrapper
-    
-
-    c:\users\amrei\appdata\local\programs\python\python39\lib\site-packages\pandas\core\frame.py in drop(self, labels, axis, index, columns, level, inplace, errors)
-       4899                 weight  1.0     0.8
-       4900         """
-    -> 4901         return super().drop(
-       4902             labels=labels,
-       4903             axis=axis,
-    
-
-    c:\users\amrei\appdata\local\programs\python\python39\lib\site-packages\pandas\core\generic.py in drop(self, labels, axis, index, columns, level, inplace, errors)
-       4145         for axis, labels in axes.items():
-       4146             if labels is not None:
-    -> 4147                 obj = obj._drop_axis(labels, axis, level=level, errors=errors)
-       4148 
-       4149         if inplace:
-    
-
-    c:\users\amrei\appdata\local\programs\python\python39\lib\site-packages\pandas\core\generic.py in _drop_axis(self, labels, axis, level, errors)
-       4180                 new_axis = axis.drop(labels, level=level, errors=errors)
-       4181             else:
-    -> 4182                 new_axis = axis.drop(labels, errors=errors)
-       4183             result = self.reindex(**{axis_name: new_axis})
-       4184 
-    
-
-    c:\users\amrei\appdata\local\programs\python\python39\lib\site-packages\pandas\core\indexes\base.py in drop(self, labels, errors)
-       6016         if mask.any():
-       6017             if errors != "ignore":
-    -> 6018                 raise KeyError(f"{labels[mask]} not found in axis")
-       6019             indexer = indexer[~mask]
-       6020         return self.delete(indexer)
-    
-
-    KeyError: "['PassengerId' 'Name' 'SibSp' 'Cabin' 'Ticket' 'Sex' 'Embarked'] not found in axis"
-
-
-
-```python
-titanic.head(4)
-```
 
 
 
