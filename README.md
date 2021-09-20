@@ -1241,22 +1241,3 @@ test.head()
 
 
 
-
-```python
-predictions = random_forest.predict(test)
-```
-
-
-```python
-output = pd.DataFrame({'PassengerId': test_org.PassengerId, 'Survived': predictions})
-output.to_csv('my_submission.csv', index=False)
-print("Your submission was successfully saved!")
-```
-
-    Your submission was successfully saved!
-    
-
-
-```python
-
-```
